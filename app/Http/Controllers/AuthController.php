@@ -41,7 +41,7 @@ class AuthController extends Controller
         ]);
 
         Auth::login($user);
-        return redirect()->route('/')->with('success', 'Registrasi berhasil!');
+        return redirect('/')->with('success', 'Registrasi berhasil!');
     }
 
     public function showLoginForm()
