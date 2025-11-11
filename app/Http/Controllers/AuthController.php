@@ -41,7 +41,7 @@ class AuthController extends Controller
         ]);
 
         Auth::login($user);
-        return redirect()->route('dashboard')->with('success', 'Registrasi berhasil!');
+        return redirect()->route('/')->with('success', 'Registrasi berhasil!');
     }
 
     public function showLoginForm()
@@ -55,7 +55,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             if (Auth::user()->role === 'admin') {
-                return redirect('/admin/dashboard');
+                return redirect('/admin');
             } else {
                 return redirect('/');
             }
